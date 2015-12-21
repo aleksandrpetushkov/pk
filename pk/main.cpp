@@ -17,6 +17,7 @@ ostream & operator<<(ostream &output, Ryad *_rya)
 }
 
 
+
 int main()
 {
 	//cout << "Hello world\n";
