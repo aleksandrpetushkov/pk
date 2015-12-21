@@ -7,6 +7,11 @@ using namespace std;
 
 ostream & operator<<(ostream &output, Ryad (&_rya)[7]) 
 {
+	for (unsigned int i = 0; i < 7; ++i)
+	{
+		_rya[i].show();
+		_rya[i].calc_size_out();
+	}
 
 	for (bool b = true; b;)
 	{
@@ -18,8 +23,12 @@ ostream & operator<<(ostream &output, Ryad (&_rya)[7])
 				cout << _rya[i].getstr() << "  ";
 				b = true;
 			}
-			cout << endl;
+			else
+			{
+				cout << "    ";
+			}
 		}
+		cout << endl;
 	}
 	cin.get();
 	return output;
@@ -50,10 +59,6 @@ int main()
 
 	ryads[0].show();
 	ryads[0].calc_size_out();
-	/*
-	cout << ryads[0].getstr();
-	cout << endl << k.size() << endl << endl;
-	//*/
 	cout << ryads << endl;
 	cin.get();
 

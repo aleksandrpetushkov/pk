@@ -56,7 +56,6 @@ public:
 		result += type;
 		result += '|';
 		result += val;
-		result += '\0';
 		return result;
 	}
 protected:
