@@ -1,5 +1,6 @@
 #include <vector>;
 #include "card.h"
+//#include "Home.h"
 
 class Deck
 {
@@ -29,21 +30,41 @@ public:
 	Card get_up_card()
 	{
 		Card result;
-		result = _cards[_cards.size() - 1];
-		_cards.pop_back();
+		result = _cards[0];
+		_cards.erase(_cards.begin());
 		return result;
+	}
+	Card get_up_card_copy()
+	{
+		return _cards[0];
 	}
 	unsigned int size()
 	{
 		return _cards.size();
 	}
-	Card operator[](unsigned int _i)
+	Card operator[](unsigned int _i)const
 	{
 		if(!(_i>_cards.size()-1))
 		{
 			return _cards[_i];
 		}
 	}
+	std::string get_str_up_card()
+	{
+		if (_cards.size() > 0)
+		{
+			return _cards[0].get_string();
+		}
+
+		return "=====";
+	}
+	void next()
+	{
+		_cards.push_back(_cards[0]);
+		_cards.erase(_cards.begin());
+	}
+	
+
 protected:
 	unsigned int _number_of=52;
 	std::vector<Card> _cards;

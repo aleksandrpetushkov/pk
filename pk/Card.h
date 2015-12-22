@@ -3,6 +3,11 @@
 static class Card
 {
 public:
+	Card(char t, char v)
+	{
+		type = t;
+		val = v;
+	}
 	Card()
 	{
 		srand(time(NULL));

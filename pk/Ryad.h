@@ -9,7 +9,6 @@ public:
 	{
 		
 	}
-	unsigned int size_out = 0;
 	void calc_size_out()
 	{
 		size_out = visible.size() + invisible.size();
@@ -18,7 +17,7 @@ public:
 	{
 		invisible.push_back(_in_card);
 	}
-	void show()
+	void show()//ѕереворачивает карту если всерхн€€ карта лежит рубашкой ввех
 	{
 		if(visible.size()==0&&invisible.size()!=0)
 		{
@@ -44,9 +43,17 @@ public:
 			}
 		}
 	}
-	
-
+	unsigned int size_outm()
+	{
+		return size_out;
+	}
+	unsigned int get_size()
+	{
+		return visible.size() + invisible.size();
+	}
 protected:
+	unsigned int size_out = 0;
+
 	std::vector<Card> visible;
 	std::vector<Card> invisible;
 	unsigned int vis=0;
