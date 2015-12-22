@@ -49,12 +49,15 @@ public:
 		type = gen_t();
 		val = gen_v();
 	}
-	char* get_string()
+
+	std::string get_string()
 	{
-		char result[3];
-		result[0] = type;
-		result[1] = val;
-		result[2]='\0';
+		std::string result;
+		result += type;
+		result += '|';
+		result += val;
+		result += '\0';
+		return result;
 	}
 protected:
 
@@ -77,12 +80,12 @@ protected:
 		if (v >= 12)
 		{
 			v = 0;
-			return types[12];
+			return vals[12];
 		}
 		else
 		{
 			++v;
-			return types[v - 1];
+			return vals[v - 1];
 		}
 	}
 	static char t;
@@ -92,7 +95,7 @@ protected:
 	char type; //масть
 	char val;	
 };
-char Card::vals[13] = { ' A', 'K', 'Q', 'J', '10','9','8','7','6','5','4','3','2' };
-char Card::types[4] = { 'H','S','D','C' };
+char Card::vals[13] = { ' A', 'K', 'Q', 'J', 'T','9','8','7','6','5','4','3','2' };
+char Card::types[4] = { 3,4,5,6 };
 char Card::t = 0;
 char Card::v = 0;

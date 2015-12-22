@@ -9,7 +9,7 @@ public:
 	{
 		
 	}
-	unsigned size_out = 0;
+	unsigned int size_out = 0;
 	void calc_size_out()
 	{
 		size_out = visible.size() + invisible.size();
@@ -22,10 +22,12 @@ public:
 	{
 		if(visible.size()==0&&invisible.size()!=0)
 		{
-			
+			visible.push_back(invisible[invisible.size()-1]);
+			invisible.pop_back();
 		}
 	}
-	char * getstr()
+
+	std::string  getstr()
 	{
 		if(size_out>0)
 		{
@@ -36,11 +38,13 @@ public:
 			}
 			else
 			{
-				return  visible[size_out - 1].get_string();
+				std::string tmp = visible[size_out - 1].get_string();
+				--size_out;
+				return  tmp;
 			}
 		}
-		
 	}
+	
 
 protected:
 	std::vector<Card> visible;

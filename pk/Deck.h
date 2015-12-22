@@ -37,6 +37,13 @@ public:
 	{
 		return _cards.size();
 	}
+	Card operator[](unsigned int _i)
+	{
+		if(!(_i>_cards.size()-1))
+		{
+			return _cards[_i];
+		}
+	}
 protected:
 	unsigned int _number_of=52;
 	std::vector<Card> _cards;
